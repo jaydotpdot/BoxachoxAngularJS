@@ -1,0 +1,165 @@
+    <section id="registerInstructions">
+      <div class="left gradient"></div>
+      <div class="right gradient"></div>
+        <p class="content">
+          You're so close to that scrumptious indulgence you’ve been craving.<br />
+          Of course I’m referring to your future spouse. Come get some!
+        </p>    
+    </section>
+    <section id="registrationForm">
+      <div class="reg_form_wrapper">
+        <fieldset>
+          <legend class="visuallyhidden">Fill out the form to complete your registration. All fields are required.</legend>         	
+        	<div id="registration">
+            <h2 class="title">
+              Registration
+            </h2>
+            <span id="spanTagline" runat="server" class="tagline">(<%= Lang.Trans("All fields are required") %>)</span>
+						<div id="divFacebook" class="facebookbtn" visible="false" runat="server" onclick="window.top.location.href = 'Register.aspx?facebook=1';">
+							<div class="facebook_connect clearfix" tabindex="1">
+								<div class="btn">                    
+									<div class="btn_icons">
+										<div class="icon">
+											<i class="fa fa-facebook"></i>
+										</div>
+									</div>
+									<div class="btn_text">
+										<span>Save yourself some trouble!</span>
+									</div>
+								</div>                    
+							</div>
+						</div>
+        		<table class="reg_form_table" cellpadding="0" cellspacing="0">
+        			<tr id="trCountry" class="tr_country" runat="server">
+        				<td class="searchlabel"><%= Lang.Trans("Country") %> <strong class="red_asterisk">*</strong></td>
+        				<td>
+        					<select ID="dropCountry" enableviewstate="false" class="dropdownlist" runat="server"></select>
+        				</td>
+        			</tr>
+        			<tr id="trState" class="tr_state" runat="server">
+        				<td class="searchlabel"><%= Lang.Trans("Region") %> <strong class="red_asterisk">*</strong></td>
+        				<td>
+	        				<select ID="dropRegion" class="dropdownlist" runat="server"></select>
+        				</td>
+        			</tr>
+        			<tr id="trCity" class="tr_city" runat="server">
+        				<td class="searchlabel"><%= Lang.Trans("City") %> <strong class="red_asterisk">*</strong></td>
+        				<td>
+	                <select ID="dropCity" class="dropdownlist" runat="server"></select>
+        				</td>
+        			</tr>
+        			<tr id="trName" class="tr_name" runat="server">
+        				<td class="searchlabel"><asp:Label ID="lblName" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+        					<asp:TextBox ID="txtName" placeholder="e.g. John Doe" CssClass="textbox" runat="server"></asp:TextBox>
+        				</td>
+        			</tr>
+        			<tr id="trGender" class="tr_gender" runat="server">
+        				<td class="searchlabel"><asp:Label ID="lblGender" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+			            <asp:DropDownList ID="dropGender" CssClass="dropdownlist" runat="server">
+			                <asp:ListItem Value=""></asp:ListItem>
+			            </asp:DropDownList>
+        				</td>
+        			</tr>
+        			<tr id="trRace" class="tr_race" runat="server">
+        				<td class="searchlabel"><asp:Label ID="lblRace" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+			            <asp:DropDownList ID="dropRace" CssClass="dropdownlist" runat="server">
+			                <asp:ListItem Value=""></asp:ListItem>
+			            </asp:DropDownList>
+        				</td>
+        			</tr>
+        			<tr id="trInterestedIn" class="tr_interested" runat="server">
+        				<td class="searchlabel"><asp:Label ID="lblInterestedIn" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+			            <asp:DropDownList ID="dropInterestedIn" CssClass="dropdownlist" runat="server">
+			                <asp:ListItem Value=""></asp:ListItem>
+			            </asp:DropDownList>
+        				</td>
+        			</tr>
+        			<tr id="trBirthdate" class="tr_birthdate" runat="server">
+        				<td class="searchlabel"><asp:Label ID="lblBirthdate" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+        					<uc2:DatePicker ID="datePicker1" CssClass="datepicker" runat="server"></uc2:DatePicker>
+        				</td>
+        			</tr>
+              <!-- ignore trBirthday2 -->
+        			<tr id="trBirthday2" runat="server"> 
+        				<td class="searchlabel"><asp:Label ID="lblBirthdate2" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+        					<uc2:DatePicker ID="datePicker2" CssClass="datepicker" runat="server"></uc2:DatePicker>
+        				</td>
+        			</tr>
+        			<tr id="trEmail" class="tr_email" runat="server">
+        				<td class="searchlabel"><asp:Label ID="lblEmail" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+        					<asp:TextBox ID="txtEmail" name="email" data-placeholder="e.g. address@example.ext" CssClass="textbox" runat="server"></asp:TextBox>
+        				</td>
+        			</tr>
+        			<tr id="trUsername" class="tr_username" runat="server">
+        				<td class="searchlabel"><asp:Label ID="lblUsername" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+        					<asp:TextBox ID="txtUsername" CssClass="textbox" runat="server"></asp:TextBox>
+        				</td>
+        			</tr>
+        			<tr id="trPassword" class="tr_password" runat="server">
+        				<td class="searchlabel"><asp:Label ID="lblPassword" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+        					<asp:TextBox ID="txtPassword" CssClass="textbox" runat="server" TextMode="Password"></asp:TextBox>
+        				</td>
+        			</tr>
+        			<tr id="trPasswordConfirm" class="tr_password_confirm" runat="server">
+        				<td class="searchlabel"><asp:Label ID="lblPassword2" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+        					<asp:TextBox ID="txtPassword2" CssClass="textbox" runat="server" TextMode="Password" EnableViewState="true"></asp:TextBox>
+        				</td>
+        			</tr>
+        			
+        			<tr id="trInvitationCode" runat="server">
+        				<td class="searchlabel"><asp:Label ID="lblInvitationCode" runat="server"></asp:Label> <strong class="red_asterisk">*</strong></td>
+        				<td>
+        					<asp:TextBox ID="txtInvitationCode" CssClass="textbox" runat="server"></asp:TextBox>
+        				</td>
+        			</tr>
+              <tr id="trCaptcha" visible="false" class="captcha" runat="server">
+                <td colspan="2">
+	                <img src="Captcha.ashx" alt="Captcha" />
+	                <asp:Label ID="lblCaptcha" CssClass="enter_the_code" runat="server"></asp:Label> <strong class="red_asterisk inline_block">*</strong>
+	                <asp:TextBox ID="txtCaptcha" runat="server"></asp:TextBox>                
+                </td>
+              </tr>
+        		</table>
+        	</div>
+        	<div class="agreement">
+              <span>By clicking Register, you agree to our </span><a id="regTermsLink" onclick="if (querystring('mobile')[0] === undefined) { parent.top.$('.terms')[0].click(); }else {window.open($('body').data('home-url') + '/TermsAndConditions.aspx');}"><%= Lang.Trans("Terms & Conditions") %></a><span>.</span>
+            	
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+      <ContentTemplate>
+              <asp:Button ID="btnRegister" runat="server" CssClass="visuallyhidden" OnClick="btnRegister_Click"></asp:Button>
+              <div id="registerSubmit" class="clearfix">
+                <div class="btn">                    
+                  <div class="btn_icons">
+                    <div class="icon">
+                      <i class="fa fa-angle-right"></i>
+                    </div>
+								    <div class="icon status busy">
+									    <!--<i class="fa fa-spinner fa-spin"></i>-->
+                      <div class="spin"></div>
+								    </div>
+								    <div class="icon status invalid">
+									    <i class="fa fa-exclamation"></i>
+								    </div>
+                  </div>  
+                  <div class="btn_text">
+                    <span>Register</span>
+                  </div>
+                </div>
+              </div>   
+	            <asp:Label ID="lblError" CssClass="error" runat="server" Visible="false" EnableViewState="False"></asp:Label>
+      </ContentTemplate>
+    </asp:UpdatePanel>  
+        	</div>
+        </fieldset>     	
+      </div>
+    </section>

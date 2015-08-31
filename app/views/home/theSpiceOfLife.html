@@ -1,0 +1,77 @@
+
+        <section id="theSpiceOfLife">
+    <div class="section_inner clearfix">
+      <div id="chocBoxWrapper" class="disable-animation" ng-class="{true: 'openBox', false: 'closeBox'}[chocBox.isOpen] + (chocBox.enableAnimation ? ' ' : ' disable-animation')">
+        <div id="flavourBtnWrapper">
+          <a href="" id="flavourBtn" class="btn" ng-click="toggleChocolateBoxAnim()">
+            <span class="btn_text">What's your flavour?</span>
+          </a>
+        </div>
+        <div id="container3d">
+          <span id="chocCloseX" ng-click="toggleChocolateBoxAnim()">&#215;</span>
+          <div id="chocBox3dContents">
+            <div id="formsWrapper">    
+              <section id="fbConnectOptions">
+                <h2 id="hiFirstName" class="title" runat="server" visible="true">
+                  Hey there,
+                </h2>
+                <span class="tagline">  
+                  Do you have a Boxachox account that you’d like to link up with your Facebook account?
+                </span>
+                <div class="fieldsWrapper">
+                  <div class="options_wrap">
+                    <div class="yes option">
+                      <span>Yes, let’s link them up!</span>
+                    </div>
+                    <div class="no option">
+                      <span>No, I need to sign up.</span>
+                    </div>
+                  </div>
+                  <asp:LinkButton ID="lnkGoHome" CssClass="none_of_above" runat="server">None of the above</asp:LinkButton>
+                </div>
+              </section>
+              <!--<asp:PlaceHolder ID="plhComponents" runat="server" /> --> <!-- plhComponents loads contents of default.xml -->
+				
+        		<div ng-include="chocBox.formPath.flavour"></div>
+            </div>
+          </div>
+          <div id="choxBoxFbackPanels" class="choxBox_fb">&nbsp;</div>
+          <div id="choxBoxFbackLid" class="choxBox_fb">&nbsp;</div>
+          <div id="chocBox3dPanels" class="boxSide box_shadow_element">
+            <!--<figure class="front">1</figure>-->
+            <figure class="back box_shadow">
+            </figure>
+            <figure class="right">
+            </figure>
+            <figure class="left">
+            </figure>
+            <figure class="top">
+            </figure>
+            <figure class="bottom">
+            </figure>
+          </div>
+           <div id="chocBox3dLid" class="boxSide box_shadow_element">
+            <figure class="front">
+            </figure>
+            <figure class="back box_shadow">
+            </figure>
+            <figure class="right">
+            </figure>
+            <figure class="left">
+            </figure>
+            <figure class="top">
+            </figure>
+            <figure class="bottom">
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="text clearfix">
+        <h2 class="title">
+          The spice of life</h2>
+        <p class="content">
+          Embrace the hunger. We're all addicted to something...
+        </p>
+      </div>
+    </div>
+  </section>

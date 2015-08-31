@@ -1,0 +1,113 @@
+        <section id="raceToYourTaste" data-type="background" data-speed="2">
+            <div class="left gradient"></div>
+            <div class="right gradient"></div>
+            <div class="top nm_bar">
+              <div class="menu">
+                <span class="text">Find that racialicious someone, exclusively at Boxachox.com</span>
+                <div class="filter_wrapper clearfix"> 
+                  <span class="title">I'm looking for a</span>
+                  <div class="controls">          
+                    <div style="width: 148px; float: left;" class="dropdown">
+                      <select id="nmRace" name="new_members_ethnicity" class="race select_box">
+                        <option value="" label="" selected></option>
+                        <option value="2" label="Hot Chocolate (Black)">Hot Chocolate (Black)</option>
+                        <option value="1" label="Dreamy Creamy (Caucasian)">Dreamy Creamy (Caucasian)</option>
+                        <option value="3" label="Gentle Oriental (Asian)">Gentle Oriental (Asian)</option>
+                        <option value="4" label="Tandoorious Glorious (Indian)">Tandoorious Glorious (Indian)</option>
+                        <option value="5" label="Galvanic Hispanic (Latino)">Galvanic Hispanic (Latino)</option>
+                        <option value="6" label="Sandy Candy (Middle Eastern)">Sandy Candy (Middle Eastern)</option>
+                        <option value="7" label="Persuasive Native (Aboriginal)">Persuasive Native (Aboriginal)</option>
+                        <option value="8" label="Coconutty (Mixed)">Coconutty (Mixed)</option>
+                      </select>
+                    </div>
+                    <div class="gender_container">
+                      <div id="nmGenderWrapper" class="gender nmRadio">
+                        <input id="nmGenderMan1" class="gender1" type="radio" name="nm_gender" value="1">
+                        <label for="nmGenderMan1">
+                          Man</label>
+                        <input id="nmGenderLady1" class="gender1" type="radio" name="nm_gender" value="2">
+                        <label for="nmGenderLady1">
+                          Lady</label>
+                      </div>
+                    </div>
+                  </div>  
+                </div>
+              </div>
+            </div>
+            <div class="bottom nm_bar">
+              <div class="menu">
+                <span class="text results_showing"></span><!-- 50 results (limited) -->
+                <div class="filter_wrapper"> 
+                  <%--<span class="title">Sort by</span>--%>
+                  <div class="controls">          
+                    <%--<div style="width: 100%; float: left;" class="dropdown">
+                      <select id="nmSort" name="new_members_sort" class="race select_box">
+                        <option value="0" label="Last Online" selected>Last Online</option>
+                        <option value="1" label="Featured">Featured</option>
+                      </select>
+                    </div>--%>
+                    <div class="prev paging">
+                      <span class="text">Prev</span>
+                      <div class="icon">
+                        <i class="fa fa-angle-left"></i>
+                      </div>
+                    </div>
+                    <div class="next paging">
+                      <span class="text">Next</span>
+                      <div class="icon">
+                        <i class="fa fa-angle-right"></i>
+                      </div>
+                    </div>
+                  </div>  
+                </div>
+              </div>
+            </div>
+            <div class="section_inner">
+              <div id="raceDefaultContent">
+				<ul id="profileCircles">
+					<li ng-repeat="user in users.previews" ng-class="{true: 'zoomIn', false: 'zoomOut'}[$index==users.previews.selectedIndex && users.previews.isZoomed]" ng-mouseover="hover = true" ng-mouseleave="hover = false">
+						<div class="profile">
+							<div class="wrapper_border" ng-class="{spin: hover}"></div>
+							<div class="profile_img" ng-click="onProfilePreviewClick($index)" style="background-image: url('{{ user.imageUrl }}')">
+							</div>
+							<div class="choc_tooltip">
+								<div class="quote_wrapper">
+								  <i class="fa fa-quote-left"></i>
+								  <i class="fa fa-quote-right"></i>
+								  <blockquote ng-click="onProfilePreviewClick($index)" cite="{{ user.status }}">{{ user.status }}</blockquote>
+								</div>
+								<div class="controls">
+								  <div class="action" style="display: none">Share</div>
+								  <div class="action"><a href="{{ user.profileUrl }}" target="_blank">View Profile</a></div>
+								  <div class="share_buttons">
+									<ul>
+									  <li title="Tweet this!">
+										<i class="fa fa-twitter"></i>
+									  </li>
+									  <li title="Like this!">
+										<i class="fa fa-facebook"></i>
+									  </li>
+									  <li title="Share on Google+">
+										<i class="fa fa-google-plus"></i>
+									  </li>
+									</ul>
+								  </div>
+								</div>
+							</div>
+						</div>
+					</li>  
+				</ul>  
+                <div class="overlay" ng-click="onProfilePreviewClick(null)" ng-class="{true: 'darken', false: 'lighten'}[users.previews.isZoomed && users.previews.selectedIndex != null]"></div>
+                <h2 id="raceTitle">
+                  Race to your taste!</h2>
+                <p class="content">
+                  With an assortment of members from smooth dark, to creamy white, and everything in
+                  between, create a free profile today, and experience how rewarding the right flavour can be.
+                </p>
+              </div>
+              <div id="nmResults" class="">
+                 <!-- newUsers needs to be here 
+                <asp:PlaceHolder ID="plhNewMembers" runat="server" /> -->
+              </div>
+            </div>
+          </section>

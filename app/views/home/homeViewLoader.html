@@ -1,0 +1,6 @@
+<!-- homeViewLoader.html: this file includes each section on the home page -->
+<div ng-include="viewPath.raceToYourTaste"></div>
+<div ng-include="viewPath.theSpiceOfLife"></div>
+
+<!-- Preloader overlay -->
+<div ng-if="!preloader.remove" class="preloader" ng-class="{ 'fade_out': preloader.dofadeAnimation }"></div>

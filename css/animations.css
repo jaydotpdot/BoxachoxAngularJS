@@ -1,0 +1,589 @@
+/* Custom Animations */
+
+/* Zoom in/zoom out animation for 4 homepage "preview" profiles  
+   --------------------------
+   NOTE: The following applies to HTML in app/views/home/raceToYourTaste.html
+*/
+#profileCircles > li.zoomIn { 
+  -webkit-transition: all 0s linear 0.5s; 
+  	 -moz-transition: all 0s linear 0.5s; 
+  	   -o-transition: all 0s linear 0.5s; 
+  		  transition: all 0s linear 0.5s; 
+  z-index: 1;
+}
+#profileCircles > li.zoomOut { 
+  -webkit-transition: all 0s linear 0.5s; 
+  	 -moz-transition: all 0s linear 0.5s; 
+  	   -o-transition: all 0s linear 0.5s; 
+  		  transition: all 0s linear 0.5s; 
+  z-index: 0;
+}
+
+#profileCircles li.zoomIn > div.profile {   
+  -webkit-transition: all 1s ease-in-out; 
+  	 -moz-transition: all 1s ease-in-out; 
+  	   -o-transition: all 1s ease-in-out; 
+  		  transition: all 1s ease-in-out;
+  box-shadow: 0 -3px 50px 50px rgba(0, 0, 0, 0.5);
+}
+#profileCircles li.zoomOut > div.profile {
+  -webkit-transition: all 1s ease-in-out; 
+  	 -moz-transition: all 1s ease-in-out; 
+  	   -o-transition: all 1s ease-in-out;
+  		  transition: all 1s ease-in-out;
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+  box-shadow: -1px 0 4px 4px rgba(0, 0, 0, 0); 
+}
+
+#profileCircles li.zoomIn > div.profile div.profile_img {   
+  -webkit-transition: all 1s ease-in-out; 
+  	 -moz-transition: all 1s ease-in-out; 
+  	   -o-transition: all 1s ease-in-out;
+  	      transition: all 1s ease-in-out;    
+  margin: -102px 0px 0px -102px;
+  height: 204px;
+  width: 204px;
+  border-radius: 102px;
+  border: 5px solid #EBE09F;
+  box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.3);   
+}
+#profileCircles li.zoomOut > div.profile div.profile_img {   
+  -webkit-transition: all 1s ease-in-out; 
+  	 -moz-transition: all 1s ease-in-out; 
+  	   -o-transition: all 1s ease-in-out;
+  		  transition: all 1s ease-in-out;
+  margin: -37px 0 0 -35px;
+  height: 68px;
+  width: 68px;
+  border: 1px solid rgba(0,0,0,0);
+  border-radius: 34px;
+  z-index: 10;
+}
+
+#profileCircles li.zoomIn > .profile div.choc_tooltip  {
+  -webkit-transition: all 1s ease-in-out; 
+  	 -moz-transition: all 1s ease-in-out; 
+  	   -o-transition: all 1s ease-in-out;
+  		  transition: all 1s ease-in-out;
+  top: 104px; 
+  opacity: 1; 
+  transform: scale(1);
+  box-shadow: 0 2px 10px 5px rgba(0, 0, 0, 0.3);
+  z-index: 15;
+}
+#profileCircles li.zoomOut div.choc_tooltip {
+  -webkit-transition: all 1s ease-in-out; 
+  	 -moz-transition: all 1s ease-in-out; 
+  	   -o-transition: all 1s ease-in-out;
+  		  transition: all 1s ease-in-out;
+  top: 30px; 
+  opacity: 0;
+  transform: scale(0.3);
+  z-index: 5; 
+}
+
+/* spins the chocolate wrapper image on mouseover */
+#profileCircles li div.wrapper_border.spin {
+  -webkit-transition: transform .8s ease-in-out; 
+  	 -moz-transition: transform .8s ease-in-out; 
+  	   -o-transition: transform .8s ease-in-out;
+  		  transition: transform .8s ease-in-out;
+  transform: rotate(540deg);
+}
+
+/* raises/lowers the opacity of the background overlay when profiles are zoomed in on */
+#raceDefaultContent > div.overlay.darken {
+  -webkit-transition: opacity 0.8s ease-in; 
+  	 -moz-transition: opacity 0.8s ease-in; 
+  	   -o-transition: opacity 0.8s ease-in;
+  		  transition: opacity 0.8s ease-in;
+  opacity: 1;
+}
+#raceDefaultContent > div.overlay.lighten {
+  -webkit-transition: opacity 0.8s ease-in; 
+  	 -moz-transition: opacity 0.8s ease-in; 
+  	   -o-transition: opacity 0.8s ease-in;
+  		  transition: opacity 0.8s ease-in;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Animations for the "What's you flavour?" chocolate box (flip up/flip down) 
+   --------------------------
+   NOTE: The following applies to HTML in app/views/home/theSpiceOfLife.html
+*/
+/* animate box lid */
+#chocBoxWrapper.disable-animation * {
+	/*-webkit-animation: none !important; 
+	-moz-animation: none !important;
+	animation: none !important;*/
+	/* prevent keyframe animation from happening on page load by setting the duration to 0 seconds */
+	-webkit-animation-duration: 0s !important;
+	-moz-animation-duration: 0s !important;
+	animation-duration: 0s !important;
+}
+#chocBoxWrapper.closeBox #chocBox3dLid {
+  -webkit-animation: rotateLidClose 2s ease-in-out 0.5s;
+  -moz-animation: rotateLidClose 2s ease-in-out 0.5s;
+  animation: rotateLidClose 2s ease-in-out 0.5s;
+  -webkit-animation-fill-mode: backwards; 
+  -moz-animation-fill-mode: backwards; 
+  animation-fill-mode: backwards; 
+}
+@-webkit-keyframes rotateLidClose {
+  0%    { 
+	-webkit-transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg);
+	transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+  }
+  50%   { 
+	-webkit-transform: scale(0.675) translateX(-204px) translateY(90px) translateZ(240px) rotateX(25deg) rotateZ(-23deg) rotateY(-20deg); 
+	transform: scale(0.675) translateX(-204px) translateY(90px) translateZ(240px) rotateX(25deg) rotateZ(-23deg) rotateY(-20deg); 
+  }
+  100%  { 
+	-webkit-transform: scale(0.675) translateX(-204px) translateY(100px) translateZ(230px) rotateX(18deg) rotateZ(-28deg) rotateY(-10deg); 
+	transform: scale(0.675) translateX(-204px) translateY(100px) translateZ(230px) rotateX(18deg) rotateZ(-28deg) rotateY(-10deg); 
+  }
+}  
+@keyframes rotateLidClose {
+  0%    { 
+	-webkit-transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg);
+	-moz-transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+	transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+  }
+  50%   { 
+	-webkit-transform: scale(0.675) translateX(-204px) translateY(90px) translateZ(240px) rotateX(25deg) rotateZ(-23deg) rotateY(-20deg); 
+	-moz-transform: scale(0.675) translateX(-204px) translateY(90px) translateZ(240px) rotateX(25deg) rotateZ(-23deg) rotateY(-20deg); 
+	transform: scale(0.675) translateX(-204px) translateY(90px) translateZ(240px) rotateX(25deg) rotateZ(-23deg) rotateY(-20deg); 
+  }
+  100%  { 
+	-webkit-transform: scale(0.675) translateX(-204px) translateY(100px) translateZ(230px) rotateX(18deg) rotateZ(-28deg) rotateY(-10deg); 
+	-moz-transform: scale(0.675) translateX(-204px) translateY(100px) translateZ(230px) rotateX(18deg) rotateZ(-28deg) rotateY(-10deg); 
+	transform: scale(0.675) translateX(-204px) translateY(100px) translateZ(230px) rotateX(18deg) rotateZ(-28deg) rotateY(-10deg); 
+  }
+}  
+#chocBoxWrapper.openBox #chocBox3dLid {
+  -webkit-animation: rotateLidOpen 2.5s ease-out;   
+  -moz-animation: rotateLidOpen 2.5s ease-out;   
+  animation: rotateLidOpen 2.5s ease-out;   
+  -webkit-animation-fill-mode: forwards;    
+  -moz-animation-fill-mode: forwards;          
+  animation-fill-mode: forwards;      
+}
+@-webkit-keyframes rotateLidOpen {
+  0%   { 
+	-webkit-transform: scale(0.675) translateX(-204px) translateY(100px) translateZ(230px) rotateX(18deg) rotateZ(-28deg) rotateY(-10deg); 
+	transform: scale(0.675) translateX(-204px) translateY(100px) translateZ(230px) rotateX(18deg) rotateZ(-28deg) rotateY(-10deg); 
+  }
+  25%  { 
+	-webkit-transform: scale(0.675) translateX(-335px) translateY(90px) translateZ(240px) rotateX(25deg) rotateZ(-18deg) rotateY(-15deg); 
+	transform: scale(0.675) translateX(-335px) translateY(90px) translateZ(240px) rotateX(25deg) rotateZ(-18deg) rotateY(-15deg); 
+  }
+  50%  { 
+	-webkit-transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+	transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+  }
+  100% { 
+	-webkit-transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+	transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+  }
+}
+@keyframes rotateLidOpen {
+  0%   { 
+	-webkit-transform: scale(0.675) translateX(-204px) translateY(100px) translateZ(230px) rotateX(18deg) rotateZ(-28deg) rotateY(-10deg); 
+	-moz-transform: scale(0.675) translateX(-204px) translateY(100px) translateZ(230px) rotateX(18deg) rotateZ(-28deg) rotateY(-10deg); 
+	transform: scale(0.675) translateX(-204px) translateY(100px) translateZ(230px) rotateX(18deg) rotateZ(-28deg) rotateY(-10deg); 
+  }
+  25%  { 
+	-webkit-transform: scale(0.675) translateX(-335px) translateY(90px) translateZ(240px) rotateX(25deg) rotateZ(-18deg) rotateY(-15deg); 
+	-moz-transform: scale(0.675) translateX(-335px) translateY(90px) translateZ(240px) rotateX(25deg) rotateZ(-18deg) rotateY(-15deg); 
+	transform: scale(0.675) translateX(-335px) translateY(90px) translateZ(240px) rotateX(25deg) rotateZ(-18deg) rotateY(-15deg); 
+  }
+  50%  { 
+	-webkit-transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+	-moz-transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+	transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+  }
+  100% { 
+	-webkit-transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+	-moz-transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+	transform: scale(1.070) translateX(-390px) translateY(57px) translateZ(-200px) rotateX(45deg) rotateZ(-10deg) rotateY(-20deg); 
+  }
+}
+
+/* animate box sides/panels */
+#chocBoxWrapper.closeBox #chocBox3dPanels {
+  -webkit-animation: rotatePanelsClose 1.1s ease-in-out;
+  -moz-animation: rotatePanelsClose 1.1s ease-in-out;
+  animation: rotatePanelsClose 1.1s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes rotatePanelsClose {
+  0% { 
+	-webkit-transform: translateZ(-40px) rotateX(0deg) translateY(42px) scale(1.40); 
+	transform: translateZ(-40px) rotateX(0deg) translateY(42px) scale(1.40); 
+  }
+  100% { 
+	-webkit-transform: translateZ(-50px) rotateX(40deg); 
+	transform: translateZ(-50px) rotateX(40deg); 
+  }  
+} 
+@keyframes rotatePanelsClose {
+  0% { 
+	-webkit-transform: translateZ(-40px) rotateX(0deg) translateY(42px) scale(1.40); 
+	-moz-transform: translateZ(-40px) rotateX(0deg) translateY(42px) scale(1.40); 
+	transform: translateZ(-40px) rotateX(0deg) translateY(42px) scale(1.40); 
+  }
+  100% { 
+	-webkit-transform: translateZ(-50px) rotateX(40deg); 
+	-moz-transform: translateZ(-50px) rotateX(40deg); 
+	transform: translateZ(-50px) rotateX(40deg); 
+  }  
+} 
+#chocBoxWrapper.openBox #chocBox3dPanels {
+  -webkit-animation: rotatePanelsOpen 1.1s ease-in-out 0.3s;
+  -moz-animation: rotatePanelsOpen 1.1s ease-in-out 0.3s;
+  animation: rotatePanelsOpen 1.1s ease-in-out 0.3s;
+  -webkit-animation-fill-mode: forwards;    
+  -moz-animation-fill-mode: forwards;    
+  animation-fill-mode: forwards;    
+}
+@-webkit-keyframes rotatePanelsOpen {
+  0% { 
+	-webkit-transform: translateZ(-50px) rotateX(40deg); 
+  	transform: translateZ(-50px) rotateX(40deg);
+  }
+  100% { 
+	-webkit-transform: translateZ(-40px) rotateX(0deg) translateY(42px) scale(1.40); 
+	transform: translateZ(-40px) rotateX(0deg) translateY(42px) scale(1.40); 
+  }  
+}
+@keyframes rotatePanelsOpen {
+  0% { 
+	-webkit-transform: translateZ(-50px) rotateX(40deg); 
+  	-moz-transform: translateZ(-50px) rotateX(40deg);
+  	transform: translateZ(-50px) rotateX(40deg);
+  }
+  100% { 
+	-webkit-transform: translateZ(-40px) rotateX(0deg) translateY(42px) scale(1.40); 
+	-moz-transform: translateZ(-40px) rotateX(0deg) translateY(42px) scale(1.40); 
+	transform: translateZ(-40px) rotateX(0deg) translateY(42px) scale(1.40); 
+  }  
+}
+
+/* animate box contents */
+#chocBoxWrapper.closeBox #chocBox3dContents {
+  -webkit-animation: rotateContentsClose 1.1s ease-in-out;
+  -moz-animation: rotateContentsClose 1.1s ease-in-out;
+  animation: rotateContentsClose 1.1s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes rotateContentsClose {
+  0% { 
+	opacity: 1; 
+	-webkit-transform: translateY(46px); 
+	transform: translateY(46px); 
+  }
+  100% { 
+	opacity: 0; 
+	-webkit-transform: translateZ(-50px) rotateX(40deg) scale(0.74,0.7); 
+	transform: translateZ(-50px) rotateX(40deg) scale(0.74,0.7); 
+  }  
+} 
+@keyframes rotateContentsClose {
+  0% { 
+	opacity: 1; 
+	-webkit-transform: translateY(46px); 
+	-moz-transform: translateY(46px); 
+	transform: translateY(46px); 
+  }
+  100% { 
+	opacity: 0; 
+	-webkit-transform: translateZ(-50px) rotateX(40deg) scale(0.74,0.7); 
+	-moz-transform: translateZ(-50px) rotateX(40deg) scale(0.74,0.7); 
+	transform: translateZ(-50px) rotateX(40deg) scale(0.74,0.7); 
+  }  
+}
+#chocBoxWrapper.openBox #container3d.opened #chocBox3dContents { height: 910px; } 
+#chocBoxWrapper.openBox #chocBox3dContents {   
+  opacity: 0;
+  -webkit-transform: translateY(46px);
+  -moz-transform: translateY(46px);
+  transform: translateY(46px);
+  -webkit-animation: rotateContentsOpen 1.1s ease-in-out 0.3s;
+  -moz-animation: rotateContentsOpen 1.1s ease-in-out 0.3s;
+  animation: rotateContentsOpen 1.1s ease-in-out 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes rotateContentsOpen {
+  0% { 
+	opacity: 0; 
+	-webkit-transform: translateZ(-50px) rotateX(40deg) scale(0.74,0.7); 
+	transform: translateZ(-50px) rotateX(40deg) scale(0.74,0.7); 
+  }
+  100% { 
+	opacity: 1; 
+	-webkit-transform: translateY(46px); 
+	transform: translateY(46px); 
+  }  
+}
+@keyframes rotateContentsOpen {
+  0% { 
+	opacity: 0; 
+	-webkit-transform: translateZ(-50px) rotateX(40deg) scale(0.74,0.7); 
+	-moz-transform: translateZ(-50px) rotateX(40deg) scale(0.74,0.7); 
+	transform: translateZ(-50px) rotateX(40deg) scale(0.74,0.7); 
+  }
+  100% { 
+	opacity: 1; 
+	-webkit-transform: translateY(46px); 
+	-moz-transform: translateY(46px); 
+	transform: translateY(46px); 
+  }  
+}
+
+/* animate the box's drop shadows */
+#chocBoxWrapper #chocBox3dPanels figure.box_shadow {
+  -webkit-appearance: none;    /* hack to try and fix box shadow on ipad, doesn't work though... */
+  box-shadow: 0 10px 7px 10px rgba(0, 0, 0, 0.5);  
+  -webkit-transition: all .6s ease;          
+  -moz-transition: all .6s ease;                  
+  transition: all .6s ease;          
+}
+#chocBoxWrapper.openBox #chocBox3dPanels figure.box_shadow {
+  box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.5); 
+  -webkit-transition: all .6s ease 0.7s;              
+  -moz-transition: all .6s ease 0.7s;     
+  transition: all .6s ease 0.7s;              
+}
+#chocBoxWrapper #chocBox3dLid figure.box_shadow::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  left: -70px;
+  top: -6px;
+  bottom: -26px;
+  width: 126%;
+  border-radius: 3px;
+  /*border: 1px solid rgba(0, 0, 0, 0.05);*/
+			  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 9px 14px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all .7s ease-out 1.69s; 
+  -moz-transition: all .7s ease-out 1.69s;
+  transition: all .7s ease-out 1.69s;
+  -webkit-transform: rotateX(10deg) rotateY(-37deg) rotateZ(2deg); 
+  -moz-transform: rotateX(10deg) rotateY(-37deg) rotateZ(2deg); 
+  transform: rotateX(10deg) rotateY(-37deg) rotateZ(2deg); 
+  z-index: -1;            
+}
+#chocBoxWrapper.openBox #chocBox3dLid figure.box_shadow::after {
+  top: -12px;
+  right: 0;
+  bottom: 50px; 
+  width: 125%;        
+  /*border: 1px solid rgba(0, 0, 0, 0.05);*/
+  border-radius: 2px;    
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all 1.4s ease-out;                
+  -moz-transition: all 1.4s ease-out;     
+  transition: all 1.4s ease-out;                
+  -webkit-transform: rotateX(9deg) rotateY(-30deg) rotateZ(-2deg) translateY(-12px);
+  -moz-transform: rotateX(9deg) rotateY(-30deg) rotateZ(-2deg) translateY(-12px);
+  transform: rotateX(9deg) rotateY(-30deg) rotateZ(-2deg) translateY(-12px);
+}
+
+#chocBoxWrapper #chocCloseX {
+  position: absolute;
+  display: block;
+  top: -143px;
+  right: -32px;
+  padding: 0 8px;
+  font-style: normal;    
+  color: #DAAF59;
+  font-size: 2em;
+  cursor: default;
+  opacity: 0;     
+  -webkit-transition: .2s ease;
+  -moz-transition: .2s ease;
+  transition: .2s ease;
+  -webkit-transform: translateZ(0px) rotateX(40deg) scale(0.74,0.7);
+  -moz-transform: translateZ(0px) rotateX(40deg) scale(0.74,0.7);
+  transform: translateZ(0px) rotateX(40deg) scale(0.74,0.7);
+  z-index: 950;
+}
+#chocBoxWrapper.openBox #chocCloseX 
+/*#chocCloseX.animate_box*/ {  
+  opacity: 1;     
+  cursor: pointer;
+  -webkit-transition: .6s ease 1s;
+  -moz-transition: .6s ease 1s;
+  transition: .6s ease 1s;
+  -webkit-transform: translateZ(0px) rotateX(0deg); 
+  -moz-transform: translateZ(0px) rotateX(0deg); 
+  transform: translateZ(0px) rotateX(0deg); 
+}
+/*#chocBoxWrapper #chocCloseX:hover { color: #F1E9BB; transition: 0s ease 0s; }*/
+
+/* animations for "what's your flavour" button */
+#chocBoxWrapper #flavourBtnWrapper { 
+  z-index: 700; 
+}
+#chocBoxWrapper #flavourBtn {
+  -webkit-transition: all 0.4s ease-in 1.8s;
+  -moz-transition: all 0.4s ease-in 1.8s;
+  transition: all 0.4s ease-in 1.8s;
+  opacity: 1;
+}
+#chocBoxWrapper.openBox #flavourBtnWrapper { 
+  -webkit-transition: all 0s ease-in 0.4s;
+  -moz-transition: all 0s ease-in 0.4s;
+  transition: all 0s ease-in 0.4s;
+  z-index: 400; 
+} 
+#chocBoxWrapper.openBox #flavourBtn
+/*#flavourBtn.fade_out*/ {
+  -webkit-transition: all 0.4s ease-in;
+  -moz-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  opacity: 0;  
+}
+#chocBoxWrapper #flavourBtn > span.btn_text {
+    margin-top: -62px;
+    padding-top: 60px;
+    display: block;
+    height: 160px;
+    
+    animation-name: slideText;
+    animation-duration: 8s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    /*animation-direction: reverse;*/
+    animation-timing-function: linear;
+    
+    background: -webkit-linear-gradient(top,  rgba(71,21,11,1) 0%,rgba(71,21,11,1) 19%,rgba(71,21,11,0.99) 20%,rgba(246,242,214,0.8) 40%,rgba(246,242,214,1) 50%,rgba(246,242,214,0.8) 60%,rgba(71,21,11,0.99) 80%,rgba(71,21,11,1) 81%,rgba(71,21,11,1) 100%); /* Chrome10+,Safari5.1+ */
+    /*background: -moz-linear-gradient(top,  rgba(71,21,11,1) 0%, rgba(71,21,11,1) 19%, rgba(71,21,11,0.99) 20%, rgba(246,242,214,0.8) 40%, rgba(246,242,214,1) 50%, rgba(246,242,214,0.8) 60%, rgba(71,21,11,0.99) 80%, rgba(71,21,11,1) 81%, rgba(71,21,11,1) 100%);  FF3.6+ */
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(71,21,11,1)), color-stop(19%,rgba(71,21,11,1)), color-stop(20%,rgba(71,21,11,0.99)), color-stop(40%,rgba(246,242,214,0.8)), color-stop(50%,rgba(246,242,214,1)), color-stop(60%,rgba(246,242,214,0.8)), color-stop(80%,rgba(71,21,11,0.99)), color-stop(81%,rgba(71,21,11,1)), color-stop(100%,rgba(71,21,11,1)));  Chrome,Safari4+ */
+    /*background: -o-linear-gradient(top,  rgba(71,21,11,1) 0%,rgba(71,21,11,1) 19%,rgba(71,21,11,0.99) 20%,rgba(246,242,214,0.8) 40%,rgba(246,242,214,1) 50%,rgba(246,242,214,0.8) 60%,rgba(71,21,11,0.99) 80%,rgba(71,21,11,1) 81%,rgba(71,21,11,1) 100%);  Opera 11.10+ */
+    /*background: -ms-linear-gradient(top,  rgba(71,21,11,1) 0%,rgba(71,21,11,1) 19%,rgba(71,21,11,0.99) 20%,rgba(246,242,214,0.8) 40%,rgba(246,242,214,1) 50%,rgba(246,242,214,0.8) 60%,rgba(71,21,11,0.99) 80%,rgba(71,21,11,1) 81%,rgba(71,21,11,1) 100%);  IE10+ */
+    /*background: linear-gradient(to bottom,  rgba(71,21,11,1) 0%,rgba(71,21,11,1) 19%,rgba(71,21,11,0.99) 20%,rgba(246,242,214,0.8) 40%,rgba(246,242,214,1) 50%,rgba(246,242,214,0.8) 60%,rgba(71,21,11,0.99) 80%,rgba(71,21,11,1) 81%,rgba(71,21,11,1) 100%);  W3C */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47150b', endColorstr='#47150b',GradientType=0 );  IE6-9 */
+
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    letter-spacing: 0px;
+}
+#chocBoxWrapper #flavourBtn:hover > span.btn_text {
+    animation-play-state: paused;
+    background: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+}
+@-webkit-keyframes slideText {
+  0%   { background-position: 0 -100px; }
+  100% { background-position: 0 100px;  }
+}
+
+
+/* Standard Animations */
+.slide-animation.ng-enter, .slide-animation.ng-leave {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+    position:relative;
+    height: 1000px; /* This can be changed based on your target resolution */
+}
+
+.slide-animation.ng-enter {
+  z-index:100;
+  left:100px;
+  opacity:0;
+}
+
+.slide-animation.ng-enter.ng-enter-active {
+  left:0;
+  opacity:1;
+}
+
+.slide-animation.ng-leave {
+  z-index:101;
+  opacity:1;
+  left:0;
+}
+
+.slide-animation.ng-leave.ng-leave-active {
+  left:-100px;
+  opacity:0;
+}
+
+body.skip-animations * {
+  -webkit-transition:none!important;
+  -moz-transition:none!important;
+  -o-transition:none!important;
+  transition:none!important;
+}
+
+.show-hide-animation.ng-hide-add, 
+.show-hide-animation.ng-hide-remove {
+  -webkit-transition:all linear 0.3s;
+  -moz-transition:all linear 0.3s;
+  -o-transition:all linear 0.3s;
+  transition:all linear 0.3s;
+  display:block!important;
+  height: 1000px;
+}
+ 
+.show-hide-animation.ng-hide-remove {
+  opacity:0;
+}
+.show-hide-animation.ng-hide-remove.ng-hide-remove-active {
+  opacity:1;
+}
+.show-hide-animation.ng-hide-add {
+  opacity:1;
+}
+.show-hide-animation.ng-hide-add.ng-hide-add-active {
+  opacity:0;
+}
+
+.repeat-animation.ng-enter, 
+.repeat-animation.ng-leave, 
+.repeat-animation.ng-move {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  position:relative;
+}
+
+.repeat-animation.ng-enter {
+  left:10px;
+  opacity:0;
+}
+.repeat-animation.ng-enter.ng-enter-active {
+  left:0;
+  opacity:1;
+}
+
+.repeat-animation.ng-leave {
+  left:10px;
+  opacity:1;
+}
+.repeat-animation.ng-leave.ng-leave-active {
+  left:-10px;
+  opacity:0;
+}
+
+.repeat-animation.ng-move {
+  opacity:0.5;
+}
+.repeat-animation.ng-move.ng-move-active {
+  opacity:1;
+}

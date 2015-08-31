@@ -1,0 +1,194 @@
+<header id="header">
+  <nav id="nav" class="clearfix">
+    <a id="siteLogo" title="Home" href='<%= ((PageBase)Page).CurrentUserSession == null? Config.Urls.Home : "Home.aspx" %>'> 
+		  <img id="imgLogo" class="heart_img" alt="Boxachox heart logo" src="/images/logo.png" runat="server">
+      <h1 class="site_name">
+        Box of Chocolates</h1>
+      <span class="logo_tagline long">Free Interracial Online Dating</span>    
+      <span class="logo_tagline home">Home</span>
+    </a>{{ menuState }}
+	<label id="lblMenuToggle" for="chkToggleLinks" ng-class="{true: 'show', false: ''}[menu.state && menu.userClicked] + {true: ' hide', false: ' '}[!menu.state && menu.userClicked]" ng-click="toggleMenuState()"></label>  
+	<input type="checkbox" id="chkToggleLinks" style="position: absolute;top: -9999px;left: -9999px;z-index:300;">
+    <div id="menuIcon">
+      <i class="fa fa-bars"></i>        
+    </div>
+    <div id="links" class="maxWidth show">
+	    <ul data-ng-ifZZZ="!user" id="publicLinks"><!-- <%= ((PageBase)Page).CurrentUserSession == null? "style='display:block'":"style='display:none'" %>-->
+        <li id="wyf" class="link">
+          <a id="lnkWhatsYourFlavour" onclick="lnkWhatsYourFlavour_Click" runat="server" CssClass="trigger_scrolltop" data-delay="1600" data-scroll-to-id="null" data-scroll-to-yoffset="284" data-action="open_choc_box" data-formid="#whatsYourFlavour">
+            What's your flavour?
+          </a> 
+          <div class="decoration"></div>
+        </li><li id="wb" class="link">
+          <a id="lnkWhyBoxachox" onclick="lnkWhyBoxachox_Click" runat="server" CssClass="trigger_scrolltop" data-delay="1600" data-scroll-to-id="null" data-scroll-to-yoffset="923" data-action="why_boxachox">
+            Why Boxachox?
+          </a>
+          <div class="decoration"></div>
+        </li><li id="nm" class="link">
+          <a id="lnkNewMembers" onclick="lnkNewMembers_Click" runat="server" CssClass="trigger_scrolltop" data-delay="1600" data-scroll-to-id="null" data-scroll-to-yoffset="0" data-action="open_new_members">
+            New Members
+          </a> 
+          <div class="decoration"></div>
+        </li><li id="su" class="link">
+          <a id="lnkSignUpNow" CssClass="trigger_scrolltop" href="#/register">
+            Sign up now!
+          </a>
+          <div class="decoration"></div>
+          <!--<asp:UpdatePanel ID="upnl1" runat="server">
+            <ContentTemplate>   
+              <asp:Button ID="lbtnSignUpHeaderLink" CssClass="visuallyhidden" runat="server" OnClick="lbtnSignUpHeaderLink_Click" />
+            </ContentTemplate>
+          </asp:UpdatePanel>--!>
+        </li><li class="social"><ul>
+            <li title="Follow us on Twitter">
+              <div>
+                <a href="https://twitter.com/BoxachoxDating" target="_blank"><i class="fa fa-twitter"></i></a>
+              </div>
+            </li>
+            <li title="Like us on Facebook">
+              <div>
+                <a href="https://facebook.com/BoxachoxDating" target="_blank"><i class="fa fa-facebook"></i></a>
+              </div>
+            </li>
+            <!--<li><i class="fa fa-google-plus"></i></li>--!>
+          </ul>
+        </li>
+      </ul>
+	    <ul data-ng-if="false" data-ng-ifZZZ="user" id="authenticatedLinks" <%= ((PageBase)Page).CurrentUserSession == null? "style='display:none'":"style='display:block'" %>>
+		    <li id="liSearch" class="li_search" runat="server">
+			    <a href="<%= Config.BackwardCompatibility.UseClassicSearchPage ? "Search1.aspx" : "Search.aspx" %>" class="transition">
+				    <%= Lang.Trans("Search") %>
+			    </a>
+          <div class="decoration"></div>
+		    </li>
+		    <li id="liMailbox" class="li_mailbox" runat="server">
+			    <a href="Mailbox.aspx" class="transition">
+				    <%= Lang.Trans("Mailbox") %>
+			    </a>
+          <div class="decoration"></div>
+		    </li>
+		    <%--<li id="liFavorites" runat="server">
+			    <a href="Favorites.aspx" class="transition">
+				    <%= Lang.Trans("Favorites") %>
+			    </a>
+		    </li>--%>
+		    <li id="liProfile" class="li_profile" runat="server">
+			    <a href="Profile.aspx" class="transition">
+				    <%= Lang.Trans("My Profile") %>
+			    </a>
+          <div class="decoration"></div>
+		    </li>
+		    <li id="liRacialRoulette" class="li_racial_roulette" runat="server">
+			    <a href="#" data-href='<%= ((PageBase)Page).CurrentUserSession == null ? "" : Config.Urls.Home + "/RacialRoulette.aspx?interested_in=" + CurrentUserSession.InterestedIn %>' data-desc="roulette" class="slide_in_content modal_style">
+				    Racial Roulette&#8482;
+			    </a>
+          <div class="decoration"></div>
+          <div id="rrHiddenFields" class="visuallyhidden">
+            <asp:HiddenField ID="hidRoulette" runat="server" />
+            <asp:Button ID="btnRacialRouletteRedirect" runat="server" UseSubmitBehavior="false" CssClass="roulette_redirect visuallyhidden" OnClick="btnRacialRouletteRedirect_Click" />
+          </div>
+		    </li>
+		    <li id="liGroups" runat="server">
+			    <a href="Groups.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Groups") %>
+			    </a>
+		    </li>
+		    <li id="liVideos" runat="server">
+			    <a href="BrowseVideos.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Videos") %>
+			    </a>
+		    </li>
+		    <li id="liRatePhotos" runat="server">
+			    <a href="RatePhotos.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Rate photos") %>
+			    </a>
+		    </li>
+		    <li id="liAds" runat="server">
+			    <a href="Ads.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Classifieds") %>
+			    </a>
+		    </li>
+		    <li id="liAjaxChat" Visible="false" runat="server">
+		        <a ID="lnkAjaxChatPay" runat="server" 
+                    class="transition skinheaderlinkcolor" onclick="lnkAjaxChatPay_Click">
+		            <%= Lang.Trans("Chat") %>
+		        </a>
+			    <a id="lnkAjaxChat" class="transition skinheaderlinkcolor" href="~/AjaxChat/ChatWindow.aspx" target="_ajaxchat" runat="server">
+				    <%= Lang.Trans("Chat") %>
+			    </a>
+		    </li>
+		    <li id="liContests" Visible="false" runat="server">
+			    <a href="PhotoContests.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Contests") %>
+			    </a>
+		    </li>
+		    <li id="liBroadcast" Visible="false" runat="server">
+			    <a href="BroadcastVideo.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Broadcast") %>
+			    </a>
+		    </li>
+		    <asp:Repeater ID="rptPages" Runat="server">
+			    <ItemTemplate>
+				    <li id="liContentPage" data-id='<%# Eval("ID") %>' runat="server">
+					    <a href='<%# Eval("URL") == null ? UrlRewrite.CreateContentPageUrl((int)Eval("ID")) : (string) Eval("URL")%>' class="transition skinheaderlinkcolor"><%# Eval("LinkText")%></a></li>	
+			    </ItemTemplate>
+		    </asp:Repeater>
+		    <li id="liTopCharts" runat="server">
+			    <a href="TopCharts.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Top Charts") %>
+			    </a>
+		    </li>
+		    <li id="liFriends" runat="server">
+			    <a href="Friends.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Friends") %>
+			    </a>
+		    </li>
+		    <li id="liReviewNewProfiles" Visible="false" runat="server">
+			    <a href="ReviewNewUsers.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Approve profiles") %>
+			    </a>
+		    </li>
+		    <li id="liReviewNewPhotos" Visible="false" runat="server">
+			    <a href="ReviewNewPhotos.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Approve photos") %>
+			    </a>
+		    </li>
+		    <li id="liBlog" runat="server">
+			    <a href="Blogs.aspx" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Blog") %>
+			    </a>
+		    </li>
+		    <li id="liSubscription" runat="server">
+			    <a href="Profile.aspx?sel=payment" class="transition skinheaderlinkcolor">
+				    <%= Lang.Trans("Billing") %>
+			    </a>
+		    </li>
+	    </ul>
+    </div>
+    <div data-ng-ifZZZ="!user" id="signInLink"><!-- <%= ((PageBase)Page).CurrentUserSession == null? "style='display:block'":"style='display:none'" %>-->
+      <ul>
+        <li id="si" class="link">
+          <a href="#" class="trigger_scrolltop" data-delay="1200" data-scroll-to-id="null" data-scroll-to-yoffset="284" data-action="open_choc_box" data-formid="#signIn">
+            Sign In
+          </a> 
+          <div class="decoration"></div>
+        </li>
+      </ul>
+    </div>
+    <div data-ng-if="false" data-ng-ifZZZ="user" ID="pnlLogout" class="logout SubheaderColor" runat="server">
+      <ul>
+        <li id="liSettings" class="username settings" runat="server">
+          <a ID="lnkUserSettings" CssClass="username" OnClientClick="$('body').hide(); window.location.href='Profile.aspx?sel=set'; return false;" runat="server"></a> 
+          <a ID="lnkSettingsText" CssClass="settings" OnClientClick="$('body').hide(); window.location.href='Profile.aspx?sel=set'; return false;" runat="server"></a> 
+        </li>
+        <li id="so" class="link">
+		      <%--<asp:Label id="lblWelcome" runat="server"></asp:Label>
+		      <asp:Label ID="lblCredits" runat="server"></asp:Label>--%>
+          <span class='divider'>|</span>
+		      <a id="lnkLogout" CssClass="hlinks sign_out SkinSubheaderLinkColor" runat="server" onclick="lnkLogout_Click"></a>&nbsp;&nbsp;
+        </li>
+      </ul>
+    </div>
+    <div id="topBorderGradient"></div>
+  </nav>
+</header>
