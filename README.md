@@ -11,4 +11,4 @@ What I did specifically was:
 
 NOTES:
 - If you'd like to look at CSS, I'd say look at animations.css and ignore main.css. Only because I grabbed the main.css from my main .NET project, and most of it doesn't apply here.
-- 'Sign up now' is the only links in the navigation that does anything, but it's a work in progress. The route is in place, but the form is quite broken :)
+- 'Sign up now' is the only link in the navigation that does anything, but it's a work in progress. The route is in place, but the form is quite broken :)
