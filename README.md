@@ -1,5 +1,5 @@
 # BoxachoxAngularJS
-A conversion of the front-end of my dating website's homepage (boxachox.com) to AngularJS from .NET Web Forms & jQuery.
+A conversion of the front-end of my dating website's homepage (boxachox.com) to AngularJS from .NET Web Forms & jQuery. (DISCLAIMER: The content is purely satirical)
 
 For the demo I focused my time on the surface elements of the page (layout, animations, responsiveness, etc.), didn't worry about creating real services or hooking up to live data. 
 
